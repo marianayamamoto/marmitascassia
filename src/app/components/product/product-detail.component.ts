@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { ProductService } from '../../services/product/product.service';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'product-detail',
@@ -16,13 +18,16 @@ export class ProductDetailComponent implements OnInit {
   		private location: Location
 	) {}
 	ngOnInit(): void {
-  	this.route.params
-	    .switchMap((params: Params) => this.productService.getProduct(+params['id']))
-	    .subscribe(product => this.product = product);
+  		this.route.params
+		    .map(params => params['id'])
+		    .switchMap(id => this.productService.getProduct(id))
+	    	.subscribe(product => 
+	    		this.product = product
+    		);
 	}
 	goBack(): void {
 	  this.location.back();
 	}
   	@Input()
-  	product;
+  	product: Product;
 }

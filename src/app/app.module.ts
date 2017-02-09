@@ -15,45 +15,25 @@ export const firebaseconfig = {
   };
 
 // App components
-import { ProductsListComponent } from './components/product/product-list.component';
-import { ProductDetailComponent } from './components/product/product-detail.component';
 import { AppComponent } from './components/app.component';
-import { DashboardComponent } from './components/dashboard.component';
-import { ProductService } from './services/product/product.service';
+import { Components } from './components/components';
+
+// Services
+import { Services } from './services/services';
+
+// Routes
+import { Routes } from './routes/routes';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    ProductsListComponent,
-    ProductDetailComponent
-  ],
+  declarations: Components,
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseconfig),
-    RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: 'products',
-        component: ProductsListComponent
-      },
-      {
-        path: 'products/detail/:id',
-        component: ProductDetailComponent
-      }
-    ])
+    RouterModule.forRoot(Routes)
   ],
-  providers: [ProductService],
+  providers: Services,
   bootstrap: [AppComponent]
 })
 

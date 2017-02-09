@@ -1,7 +1,7 @@
 
 <h2>Produtos</h2>
 <ul>
-<li *ngFor="let product of products | async">
+<li *ngFor="let product of products">
  <a [routerLink]="['/products/detail', product.$key]"  class="col-1-4">{{product.name}}</a>
 </li>
 </ul>

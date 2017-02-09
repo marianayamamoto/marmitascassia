@@ -3,11 +3,11 @@ import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../models/product';
 
 @Component({
-  selector: 'product-list',
-  templateUrl: '../../views/product/product-list.component.html'
+  selector: 'product-create',
+  templateUrl: '../../views/product/product-create.component.html'
   })
 
-  export class ProductsListComponent implements OnInit {   
+  export class ProductCreateComponent implements OnInit {   
     constructor(private productService: ProductService) { }
     products: Product[];
     selectedProduct: Product = null;
