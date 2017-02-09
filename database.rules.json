@@ -4,7 +4,7 @@
     ".write": "false",
     "products": {
       ".read": "true",
-      ".write": "false",
+      ".write": "true",
       "$uid": {
         ".read": "auth != null && auth.uid == $uid",
         ".write": "auth != null && auth.uid == $uid"

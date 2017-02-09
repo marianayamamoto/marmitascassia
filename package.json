@@ -8,8 +8,10 @@
     "test": "test/"
   },
   "scripts": {
+    "login": "firebase login --interactive",
     "start": "ng serve",
     "deploy": "ng build && firebase deploy",
+    "deploy-only": "firebase deploy",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check"
   },
   "repository": {

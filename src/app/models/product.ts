@@ -3,8 +3,11 @@ export class Product {
 	name: string;
 	category: string;
 	price: number;
-	constructor(key: string, name: string, category: string, price: number) {
-		this.$key = key;
+	constructor( 
+		name: string, 
+		category: string, 
+		price: number
+	) {
 		this.name = name;
 		this.category = category;
 		this.price = price;

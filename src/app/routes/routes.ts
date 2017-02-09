@@ -1,5 +1,5 @@
 import { DashboardComponent } from '../components/dashboard.component';
-import { ProductCreateComponent } from '../components/product/product-create.component';
+import { ProductFormComponent } from '../components/product/product-form.component';
 import { ProductDetailComponent } from '../components/product/product-detail.component';
 import { ProductsListComponent } from '../components/product/product-list.component';
 
@@ -23,6 +23,6 @@ export const Routes = [
   },
   {
     path: 'products/create',
-    component: ProductCreateComponent
+    component: ProductFormComponent
   }
 ];
