@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { RouterModule }   from '@angular/router';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 // Firebase configuration
 export const firebaseconfig = {
@@ -31,7 +32,8 @@ import { Routes } from './routes/routes';
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseconfig),
-    RouterModule.forRoot(Routes)
+    RouterModule.forRoot(Routes),
+    ToastModule.forRoot()
   ],
   providers: Services,
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@
 <ul>
 	<li *ngFor="let product of products">
 		<a [routerLink]="['/products/detail', product.$key]"  class="col-1-4">{{product.name}}</a>
+		<button (click)="removeProduct(product.$key)">Remover</button>
 	</li>
 </ul>
 <a [routerLink]="['/products/create']"  class="col-1-4">Adicionar Produto</a>

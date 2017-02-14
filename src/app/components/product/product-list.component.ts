@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../models/product';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'product-list',
@@ -8,7 +9,9 @@ import { Product } from '../../models/product';
   })
 
   export class ProductsListComponent implements OnInit {   
-    constructor(private productService: ProductService) { }
+    constructor(private productService: ProductService, public toastr: ToastsManager, vcr: ViewContainerRef) { 
+      this.toastr.setRootViewContainerRef(vcr);
+    }
     products: Product[];
     selectedProduct: Product = null;
     onSelect(product): void {
@@ -19,6 +22,14 @@ import { Product } from '../../models/product';
         .subscribe(products => {
           this.products = products
         });
+    }
+    removeProduct(id: string): void {
+      this.productService.remvoveProduct(id)
+        .then(_ => 
+          {
+            this.toastr.success('You are awesome!', 'Success!');
+          })
+        ;
     }
     ngOnInit(): void {
       this.getProducts();
