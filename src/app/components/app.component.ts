@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 @Component({
   selector: 'app-root',
   templateUrl: '../views/app.component.html',
   styleUrls: [
     '../../../node_modules/ng2-toastr/bundles/ng2-toastr.min.css'
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
   })
 
   export class AppComponent implements OnInit {

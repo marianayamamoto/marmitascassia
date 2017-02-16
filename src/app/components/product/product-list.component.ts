@@ -8,9 +8,8 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
   templateUrl: '../../views/product/product-list.component.html'
   })
 
-  export class ProductsListComponent implements OnInit {   
-    constructor(private productService: ProductService, public toastr: ToastsManager, vcr: ViewContainerRef) { 
-      this.toastr.setRootViewContainerRef(vcr);
+  export class ProductsListComponent implements OnInit {
+    constructor(private productService: ProductService, public toastr: ToastsManager) {
     }
     products: Product[];
     selectedProduct: Product = null;
@@ -25,9 +24,9 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
     }
     removeProduct(id: string): void {
       this.productService.remvoveProduct(id)
-        .then(_ => 
+        .then(_ =>
           {
-            this.toastr.success('You are awesome!', 'Success!');
+            this.toastr.success('Produto removido com sucesso!', 'Successo!');
           })
         ;
     }
