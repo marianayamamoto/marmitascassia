@@ -3,12 +3,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
-import { ProductService } from '../../services/product/product.service';
-import { Product } from '../../models/product';
+import { Product } from '../shared/product';
+import { ProductService } from '../shared/product.service';
 
 @Component({
   selector: 'product-detail',
-  templateUrl: '../../views/product/product-detail.component.html'
+  templateUrl: './product-detail.component.html'
   //styleUrls: [ 'heroes.component.css' ]
 })
 export class ProductDetailComponent implements OnInit {
@@ -21,7 +21,7 @@ export class ProductDetailComponent implements OnInit {
   		this.route.params
 		    .map(params => params['id'])
 		    .switchMap(id => this.productService.getProduct(id))
-	    	.subscribe(product => 
+	    	.subscribe(product =>
 	    		this.product = product
     		);
 	}

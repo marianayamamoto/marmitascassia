@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { ProductService } from '../../services/product/product.service';
-import { Product } from '../../models/product';
+import { ProductService } from '../shared/product.service';
+import { Product } from '../shared/product';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'product-list',
-  templateUrl: '../../views/product/product-list.component.html'
+  templateUrl: 'product-list.component.html'
   })
 
-  export class ProductsListComponent implements OnInit {
+  export class ProductListComponent implements OnInit {
     constructor(private productService: ProductService, public toastr: ToastsManager) {
     }
     products: Product[];

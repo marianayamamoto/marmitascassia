@@ -3,13 +3,12 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
-import { ProductService } from '../../services/product/product.service';
-import { Product } from '../../models/product';
+import { Product } from '../shared/product';
+import { ProductService } from '../shared/product.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'product-form',
-  templateUrl: '../../views/product/product-form.component.html'
+  templateUrl: './product-form.component.html'
   })
 
   export class ProductFormComponent implements OnInit {

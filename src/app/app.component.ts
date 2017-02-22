@@ -2,9 +2,9 @@ import { Component, OnInit, ViewContainerRef, ViewEncapsulation } from '@angular
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 @Component({
   selector: 'app-root',
-  templateUrl: '../views/app.component.html',
+  templateUrl: 'app.component.html',
   styleUrls: [
-    '../../../node_modules/ng2-toastr/bundles/ng2-toastr.min.css'
+    '../../node_modules/ng2-toastr/bundles/ng2-toastr.min.css'
   ],
   encapsulation: ViewEncapsulation.None
   })
@@ -13,6 +13,6 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
   	constructor(public toastr: ToastsManager, vRef: ViewContainerRef) {
         this.toastr.setRootViewContainerRef(vRef);
     }
-	ngOnInit(): void {
-	}
+	  ngOnInit(): void {
+	  }
   }
