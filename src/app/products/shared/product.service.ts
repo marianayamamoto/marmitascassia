@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { AngularFire, FirebaseRef, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
-import { Product } from '../../models/product';
+import { Product } from './product';
 
 
 @Injectable()
