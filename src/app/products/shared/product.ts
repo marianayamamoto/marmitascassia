@@ -1,5 +1,6 @@
-export class Product {
-	$key: string;
+import { BaseModel } from '../../shared/base.model';
+
+export class Product extends BaseModel {
 	name: string;
 	category: string;
 	price: number;
@@ -8,11 +9,9 @@ export class Product {
 		category: string,
 		price: number
 	) {
+		super();
 		this.name = name;
 		this.category = category;
 		this.price = price;
 	};
-	getJson() {
-		return null;
-	}
 }

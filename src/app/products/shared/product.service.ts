@@ -22,9 +22,10 @@ export class ProductService {
 		const key = prod.$key;
 
 		delete prod.$key;
+		delete prod.$exists;
 		//var sent = prod.json();
 		//debugger;
-		return this.getProducts().update(key, {name: prod.name});
+		return this.getProducts().update(key, prod);
 	}
 	remvoveProduct(id: string): firebase.Promise<void> {
 		return this.getProduct(id).remove();
