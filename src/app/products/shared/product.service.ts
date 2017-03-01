@@ -36,7 +36,6 @@ import { Product } from './product';
     var product = this.getProduct(key);
 
     Object.assign(product, prod);
-    this.getProducts().update(key, prod);
 
     return this.getProducts().update(key, prod);
 
