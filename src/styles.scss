@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+@import '../node_modules/ng2-toastr/bundles/ng2-toastr.min.css';
+
+// Core Styles
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+$breakpoints: (
+    'xs': 576px,
+    's': 768px,
+    'md': 992px,
+    'l': 1200px
+) !default;
+
+$main-text-color: #000;
+$inverted-text-color: #fff;
+$hover-sidebar-item-bg: #eee;
+$hover-toolbar-item-bg: #4f67dd;
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+md-sidenav-container {
+    height: 100%;
+}
+
+md-sidenav {
+    width: 260px;
+    @include respond-to('s') {
+      width: 100%;
+    }
+}
+
+// Layout Styles
+.app-root_container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+
+    & > .component_container {
+        flex: 1;
+    }
+}
+
+.sidenav-action {
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: $inverted-text-color;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover {
+        border-radius: 5px;
+        background-color: $hover-toolbar-item-bg;
+        transition: background-color .5s ease-in-out;
+    }
+
+    .mat-icon {
+        padding-top: 5px;
+    }
+}
+.mat-sidenav {
+  .mat-list-item {
+    &:hover {
+      background-color: $hover-sidebar-item-bg;
+      transition: background-color .5s ease-in-out;
+    }
+
+    .mat-icon {
+      margin-right: 15px;
+    }
+
+    .list-item_link {
+      text-decoration: none;
+      color: $main-text-color;
+      outline: none;
+    }
+  }  
+}
+
+.fixed-floating-btn.mat-fab {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
