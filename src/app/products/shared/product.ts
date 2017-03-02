@@ -1,4 +1,3 @@
-import { BaseModel } from '../../shared/base.model';
 
 export class Product {
   $key: string;

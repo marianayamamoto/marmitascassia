@@ -6,14 +6,18 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductService } from './shared/product.service';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
     imports: [
         BrowserModule,
         ProductsRoutingModule,
-        FormsModule
+        FormsModule,
+        MaterialModule
     ],
-    exports: [],
+    exports: [
+        MaterialModule
+    ],
     declarations: [
         ProductDetailComponent,
         ProductListComponent,

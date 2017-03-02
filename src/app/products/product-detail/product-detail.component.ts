@@ -9,8 +9,8 @@ import { ProductService } from '../shared/product.service';
 @Component({
   selector: 'product-detail',
   templateUrl: './product-detail.component.html'
-  //styleUrls: [ 'heroes.component.css' ]
 })
+
 export class ProductDetailComponent implements OnInit {
 	constructor(
   		private productService: ProductService,
@@ -25,9 +25,11 @@ export class ProductDetailComponent implements OnInit {
 	    		this.product = product
     		);
 	}
+
 	goBack(): void {
 	  this.location.back();
 	}
+
   	@Input()
   	product: Product;
 }

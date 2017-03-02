@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { RouterModule }   from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 
 
 // Firebase configuration
@@ -24,8 +26,11 @@ export const firebaseconfig = {
     ToastModule.forRoot(),
     RouterModule,
     AngularFireModule.initializeApp(firebaseconfig),
+    MaterialModule
   ],
-  exports: [],
+  exports: [
+    MaterialModule
+  ],
   declarations: [],
   providers: []
 })

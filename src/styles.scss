@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+@import '../node_modules/ng2-toastr/bundles/ng2-toastr.min.css';
+
+// Core Styles
+@import 'app/core/styles/_core';
+@import 'app/core/styles/_variables';
+@import 'app/core/styles/_mixins';
+@import 'app/core/styles/_layout';
+
+// Components Styles
+@import 'app/products/styles/_product';
