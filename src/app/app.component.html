@@ -1,6 +1,37 @@
-<h1>
-  {{title}}
-</h1>
-<a routerLink="/dashboard">Painel Principal</a>
-<a routerLink="/products">Produtos</a>
-<router-outlet></router-outlet>
+<div class="app-root_container">
+  <div class="component_container">
+    <md-sidenav-container>
+      <md-sidenav mode="side" #sidenav >
+        <md-list>
+          <md-list-item>
+            <md-icon>
+              dashboard
+            </md-icon>
+            <a class="list-item_link" routerLink="/dashboard" (click)="sidenav.close()">Painel Principal</a>
+          </md-list-item>
+          <md-list-item>
+            <md-icon>
+              kitchen
+            </md-icon>
+            <a class="list-item_link" routerLink="/products" (click)="sidenav.close()">Produtos</a>
+          </md-list-item>
+        </md-list>
+      </md-sidenav>
+
+      <!-- primary content -->
+      <md-toolbar color="primary">
+        <a class="sidenav-action" (click)="sidenav.toggle()">
+            <md-icon>
+              menu
+            </md-icon>
+        </a>
+
+        <!-- This fills the remaining space of the current row -->
+        <span class="example-fill-remaining-space"></span>
+
+        <span>{{title}}</span>
+      </md-toolbar>
+      <router-outlet></router-outlet>
+    </md-sidenav-container>
+  </div>
+</div>

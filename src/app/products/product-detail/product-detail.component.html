@@ -1,8 +1,30 @@
-<div *ngIf="product">
-<h2>Detalhe de Produto</h2>
-<span>{{product.name}}</span>
-<span>{{product.category}}</span>
-<span>R${{product.price}}</span>
+<div class="container">
+    <div *ngIf="product">
+    <h2>Detalhe de Produto</h2>
+    <md-card>
+        <md-card-title>
+            <span>{{product.name}}</span>
+        </md-card-title>
+        <md-card-content>
+            <md-list>
+                <md-list-item>
+                    <span>{{product.category}}</span>
+                </md-list-item>
+                <md-list-item>
+                    <span>{{product.price | currency:'BRL':true}}</span>
+                </md-list-item>
+            </md-list>
+        </md-card-content>
+        <md-card-actions>
+            <button md-button (click)="goBack()">
+                <md-icon>
+                arrow_back
+                </md-icon>
+                &nbsp;
+                Voltar
+            </button>
+        </md-card-actions>
+    </md-card>
+    </div>
+    <a md-fab [routerLink]="['/products/edit', product.$key]" class="fixed-floating-btn"><md-icon>edit</md-icon></a>
 </div>
-<button (click)="goBack()">Voltar</button>
-<a [routerLink]="['/products/edit', product.$key]">Editar</a>

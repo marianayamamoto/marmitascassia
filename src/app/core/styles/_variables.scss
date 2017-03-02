@@ -1,0 +1,11 @@
+$breakpoints: (
+    'xs': 576px,
+    's': 768px,
+    'md': 992px,
+    'l': 1200px
+) !default;
+
+$main-text-color: #000;
+$inverted-text-color: #fff;
+$hover-sidebar-item-bg: #eee;
+$hover-toolbar-item-bg: #4f67dd;
