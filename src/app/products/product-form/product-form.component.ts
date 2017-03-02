@@ -22,13 +22,22 @@ import { ProductService } from '../shared/product.service';
     categories = ['Marmita', 'Bebida', 'Outro'];
     submitted = false;
     newProduct() {
-      this.model = new Product('', '', 0);
+      this.model = new Product();
     }
     onSubmit() {
       this.productService.updateProduct(this.model, this.isNew)
       .then(_ => {
         this.submitted = true;
-        this.router.navigate([`products/detail/${this.model.$key}`]);
+        if (this.isNew) {
+
+          this.router.navigate([`/products`]);
+
+        } else {
+
+          this.router.navigate([`products/detail/${this.model.$key}`]);
+
+        }
+
       });
     }
     ngOnInit(): void {

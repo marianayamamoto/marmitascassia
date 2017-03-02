@@ -12,7 +12,7 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
     constructor(private productService: ProductService, public toastr: ToastsManager) {
     }
     products: Product[];
-    selectedProduct: Product = null;
+    selectedProduct: Product;
     onSelect(product): void {
       this.selectedProduct = product;
     };
