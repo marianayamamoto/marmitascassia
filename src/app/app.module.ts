@@ -7,6 +7,8 @@ import { AppRoutingModule, routedComponents } from './app-routing.module';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ProductsModule } from './products/products.module';
+import { CategoryModule } from './category/category.module';
+
 
 // App components
 import { AppComponent } from './app.component';
@@ -18,7 +20,8 @@ import { AppComponent } from './app.component';
     CoreModule,
     AppRoutingModule,
     DashboardModule,
-    ProductsModule
+    ProductsModule,
+    CategoryModule
   ],
   bootstrap: [AppComponent]
 })

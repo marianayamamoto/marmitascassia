@@ -24,7 +24,7 @@ import { Product } from './product';
 
   }
 
-  updateProduct(prod: Product, create: boolean): firebase.Promise<void> {
+  updateProduct(prod: any, create: boolean): firebase.Promise<void> {
 
     if (create) {
 
@@ -34,8 +34,10 @@ import { Product } from './product';
 
     var key = prod.$key;
     var product = this.getProduct(key);
+    var new_product = new Product();
 
-    Object.assign(product, prod);
+    delete prod.$key;
+    delete prod.$exists;
 
     return this.getProducts().update(key, prod);
 

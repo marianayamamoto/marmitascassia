@@ -1,0 +1,30 @@
+<div class="container">
+    <div *ngIf="category">
+    <h2>Detalhe de Produto</h2>
+    <md-card>
+        <md-card-title>
+            <span>{{category.name}}</span>
+        </md-card-title>
+        <md-card-content>
+            <md-list>
+                <md-list-item>
+                    <span>{{category.category}}</span>
+                </md-list-item>
+                <md-list-item>
+                    <span>{{category.price | currency:'BRL':true}}</span>
+                </md-list-item>
+            </md-list>
+        </md-card-content>
+        <md-card-actions>
+            <button md-button (click)="goBack()">
+                <md-icon>
+                arrow_back
+                </md-icon>
+                &nbsp;
+                Voltar
+            </button>
+        </md-card-actions>
+    </md-card>
+    </div>
+    <a md-fab [routerLink]="['/categories/edit', category.$key]" class="fixed-floating-btn"><md-icon>edit</md-icon></a>
+</div>
