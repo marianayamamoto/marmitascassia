@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 
 @Component({
-  selector: 'my-dashboard',
-  templateUrl: 'dashboard.component.html'
+  selector: 'app-root',
+  template: `
+  <button  md-raised-button (click)="login()"><img width="30" src="google-logo.png" />Login</button>
+  <button  md-raised-button (click)="logout()">Logout</button>
+  `,
 })
-
-export class DashboardComponent {
+export class LoginComponent {
   user = {};
   constructor(public af: AngularFire) {
   this.af.auth.subscribe(user => {
@@ -17,7 +19,6 @@ export class DashboardComponent {
         // user not logged in
         this.user = {};
       }
-      console.log(user);
     });
   }
   login() {

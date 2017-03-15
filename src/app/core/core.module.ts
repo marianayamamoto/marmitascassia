@@ -3,20 +3,26 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
-import { RouterModule }   from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
+import { RouterModule } from '@angular/router';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
 
 // Firebase configuration
-export const firebaseconfig = {
+const firebaseconfig = {
     apiKey: "AIzaSyCkmKLYYpqXVizWvU2cmDw24hp8DDbF4RA",
     authDomain: "marmitascassia.firebaseapp.com",
     databaseURL: "https://marmitascassia.firebaseio.com",
     storageBucket: "marmitascassia.appspot.com",
     messagingSenderId: "933582000572"
   };
+
+
+const firebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Redirect
+};
 
 @NgModule({
   imports: [
@@ -25,7 +31,7 @@ export const firebaseconfig = {
     HttpModule,
     ToastModule.forRoot(),
     RouterModule,
-    AngularFireModule.initializeApp(firebaseconfig),
+    AngularFireModule.initializeApp(firebaseconfig, firebaseAuthConfig),
     MaterialModule
   ],
   exports: [
