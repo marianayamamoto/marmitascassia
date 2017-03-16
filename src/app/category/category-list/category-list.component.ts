@@ -2,6 +2,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { CategoryService } from '../shared/category.service';
 import { Category } from '../shared/category';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { DialogsService } from '../../confirm-dialog/confirm-dialog.service';
 
 @Component({
   selector: 'category-list',
@@ -9,7 +10,8 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
   })
 
   export class CategoryListComponent implements OnInit {
-    constructor(private categoryService: CategoryService, public toastr: ToastsManager) {
+    constructor(private categoryService: CategoryService, public toastr: ToastsManager,
+      private dialogsService: DialogsService) {
     }
     categories: Category[];
     selectedCategory: Category;
@@ -26,9 +28,18 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
       this.categoryService.remvoveCategory(id)
         .then(_ =>
           {
-            this.toastr.success('Produto removido com sucesso!', 'Successo!');
+            this.toastr.success('Categoria removida com sucesso!', 'Successo!');
           })
         ;
+    }
+    openDialog(id: string) {
+      this.dialogsService
+      .confirm('Confirm Dialog', 'Are you sure you want to do this?')
+      .subscribe(res => {
+        if(res) {
+          this.removeCategory(id);
+        }
+      });
     }
     ngOnInit(): void {
       this.getCategories();

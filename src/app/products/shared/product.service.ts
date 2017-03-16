@@ -33,8 +33,6 @@ import { Product } from './product';
     }
 
     var key = prod.$key;
-    var product = this.getProduct(key);
-    var new_product = new Product();
 
     delete prod.$key;
     delete prod.$exists;

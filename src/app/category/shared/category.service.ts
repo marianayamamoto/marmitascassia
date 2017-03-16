@@ -18,28 +18,26 @@ import { Category } from './category';
 
   }
 
-  createCategory(prod: Category) {
+  createCategory(category: Category) {
 
-    return this.af.database.list('/category').push(prod);
+    return this.af.database.list('/category').push(category);
 
   }
 
-  updateCategory(prod: any, create: boolean): firebase.Promise<void> {
+  updateCategory(category: any, create: boolean): firebase.Promise<void> {
 
     if (create) {
 
-      return this.createCategory(prod);
+      return this.createCategory(category);
 
     }
 
-    var key = prod.$key;
-    var category = this.getCategory(key);
-    var new_category = new Category();
+    var key = category.$key;
 
-    delete prod.$key;
-    delete prod.$exists;
+    delete category.$key;
+    delete category.$exists;
 
-    return this.getCategories().update(key, prod);
+    return this.getCategories().update(key, category);
 
   }
 

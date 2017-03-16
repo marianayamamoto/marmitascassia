@@ -1,12 +1,12 @@
 <div class="container">
-	<h2>Produtos</h2>
+	<h2>Categorias</h2>
 
 	<md-card *ngFor="let category of categories" class="col-md-3">
 		<md-card-title>
 			<a [routerLink]="['/categories/detail', category.$key]"  class="col-1-4">{{category.name}}</a>
 		</md-card-title>
 		<md-card-content>
-			<button md-button (click)="removeCategory(category.$key)"><md-icon>delete</md-icon> Remover</button>
+			<button md-button (click)="openDialog(category.$key)"><md-icon>delete</md-icon> Remover</button>
 		</md-card-content>
 	</md-card>
 

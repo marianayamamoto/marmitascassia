@@ -8,6 +8,7 @@ import { AppRoutingModule, routedComponents } from './app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ProductsModule } from './products/products.module';
 import { CategoryModule } from './category/category.module';
+import { DialogsModule } from './confirm-dialog/confirm-dialog.module';
 
 
 // App components
@@ -21,7 +22,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     DashboardModule,
     ProductsModule,
-    CategoryModule
+    CategoryModule,
+    DialogsModule
   ],
   bootstrap: [AppComponent]
 })

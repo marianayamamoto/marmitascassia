@@ -1,20 +1,10 @@
 <div class="container">
     <div *ngIf="category">
-    <h2>Detalhe de Produto</h2>
+    <h2>Detalhe da Categoria</h2>
     <md-card>
         <md-card-title>
             <span>{{category.name}}</span>
         </md-card-title>
-        <md-card-content>
-            <md-list>
-                <md-list-item>
-                    <span>{{category.category}}</span>
-                </md-list-item>
-                <md-list-item>
-                    <span>{{category.price | currency:'BRL':true}}</span>
-                </md-list-item>
-            </md-list>
-        </md-card-content>
         <md-card-actions>
             <button md-button (click)="goBack()">
                 <md-icon>

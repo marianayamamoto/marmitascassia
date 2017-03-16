@@ -6,7 +6,7 @@
 			<a [routerLink]="['/products/detail', product.$key]"  class="col-1-4">{{product.name}}</a>
 		</md-card-title>
 		<md-card-content>
-			<button md-button (click)="removeProduct(product.$key)"><md-icon>delete</md-icon> Remover</button>
+			<button md-button (click)="openDialog(product.$key)"><md-icon>delete</md-icon> Remover</button>
 		</md-card-content>
 	</md-card>
 

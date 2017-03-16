@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { Category } from '../shared/category';
 import { CategoryService } from '../shared/category.service';
+import { DialogsService } from '../confirm-dialog/confirm-dialog.service';
+
 
 
 @Component({
@@ -17,7 +19,6 @@ import { CategoryService } from '../shared/category.service';
     formTitle: String;
     model: Category = null;
     isNew: boolean;
-    categories = ['Marmita', 'Bebida', 'Outro'];
     submitted: boolean = false;
 
     constructor(private categoryService: CategoryService,
@@ -52,14 +53,16 @@ import { CategoryService } from '../shared/category.service';
     }
 
     onChange(value) {
-      this.formTitle = 'Editando Produto: ' + value;
+      if (!this.isNew) {
+        this.formTitle = 'Editando Categoria: ' + value;
+      }
     }
 
-    goBack(): void {
+    goBack() {
   	  this.location.back();
   	}
 
-    ngOnInit(): void {
+    ngOnInit() {
       this.route.params.subscribe((params) => {
         if(params['id']) {
           this.isNew = false;
@@ -68,10 +71,10 @@ import { CategoryService } from '../shared/category.service';
             .switchMap(id => this.categoryService.getCategory(id))
             .subscribe(category => {
               this.model = category,
-              this.formTitle = 'Editando Produto: ' + category.name
+              this.formTitle = 'Editando Categoria: ' + category.name
             });
         } else {
-          this.formTitle = 'Novo Produto';
+          this.formTitle = 'Nova Categoria';
           this.isNew = true;
           this.newCategory();
         }

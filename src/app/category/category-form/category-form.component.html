@@ -12,24 +12,6 @@
             </div>
           </md-input-container>
         </div>
-        <div class="form-group">
-          <md-select placeholder="Selecione uma opção" id="category" required [(ngModel)]="model.category" name="category" #category="ngModel">
-            <md-option *ngFor="let cat of categories" [value]="cat">{{cat}}</md-option>
-          </md-select>
-          <div [hidden]="category.valid || category.pristine"
-               class="alert alert-danger">
-            Category is required
-          </div>
-        </div>
-        <div class="form-group">
-          <md-input-container>
-            <input mdInput placeholder="Preço" type="text" id="price" required [(ngModel)]="model.price" name="price" #price="ngModel"/>
-            <div [hidden]="price.valid || price.pristine"
-                 class="alert alert-danger">
-              Price is required
-            </div>
-          </md-input-container>
-        </div>
         <button md-button (click)="goBack()">
             <md-icon>
             arrow_back
@@ -41,23 +23,4 @@
         <button md-raised-button type="submit" class="btn btn-success" [disabled]="!categoryForm.form.valid">Submit</button>
       </form>
     </md-card>
-</div>
-<div [hidden]="!submitted">
-  <h2>Novo Produto Adicionado:</h2>
-  <div class="row">
-    <div class="col-xs-3">Nome</div>
-    <div class="col-xs-9  pull-left">{{ model.name }}</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">Categoria</div>
-    <div class="col-xs-9 pull-left">{{ model.category }}</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">Preço</div>
-    <div class="col-xs-9 pull-left">{{ model.price }}</div>
-  </div>
-  <br>
-  <button class="btn btn-primary" (click)="submitted=false">Editar</button>
-  <button class="btn btn-primary" (click)="newCategory(); categoryForm.reset()">Novo Produto</button>
-  <a class="btn btn-primary" routerLink="/categories">Voltar para Lista</a>
 </div>
