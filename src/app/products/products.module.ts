@@ -7,6 +7,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductService } from './shared/product.service';
 import { MaterialModule } from '@angular/material';
+import { CategoryService } from '../category/shared/category.service';
 
 @NgModule({
     imports: [
@@ -23,7 +24,10 @@ import { MaterialModule } from '@angular/material';
         ProductListComponent,
         ProductFormComponent
     ],
-    providers: [ProductService]
+    providers: [
+        ProductService,
+        CategoryService
+    ]
 })
 
 export class ProductsModule {

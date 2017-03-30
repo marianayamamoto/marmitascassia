@@ -34,7 +34,7 @@ import { DialogsService } from '../../confirm-dialog/confirm-dialog.service';
     }
     openDialog(id: string) {
       this.dialogsService
-      .confirm('Confirm Dialog', 'Are you sure you want to do this?')
+      .confirm('Confirmação', 'Você tem certeza disso?')
       .subscribe(res => {
         if(res) {
           this.removeCategory(id);

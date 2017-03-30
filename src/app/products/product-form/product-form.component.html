@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <md-select placeholder="Selecione uma opção" id="category" required [(ngModel)]="model.category" name="category" #category="ngModel">
-            <md-option *ngFor="let cat of categories" [value]="cat">{{cat}}</md-option>
+            <md-option *ngFor="let cat of categories" [value]="cat.name">{{cat.name}}</md-option>
           </md-select>
           <div [hidden]="category.valid || category.pristine"
                class="alert alert-danger">
@@ -37,27 +37,7 @@
             &nbsp;
             Voltar
         </button>
-        <button md-raised-button type="button" class="btn btn-default" (click)="newProduct(); productForm.reset()">Limpar</button>
         <button md-raised-button type="submit" class="btn btn-success" [disabled]="!productForm.form.valid">Submit</button>
       </form>
     </md-card>
-</div>
-<div [hidden]="!submitted">
-  <h2>Novo Produto Adicionado:</h2>
-  <div class="row">
-    <div class="col-xs-3">Nome</div>
-    <div class="col-xs-9  pull-left">{{ model.name }}</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">Categoria</div>
-    <div class="col-xs-9 pull-left">{{ model.category }}</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">Preço</div>
-    <div class="col-xs-9 pull-left">{{ model.price }}</div>
-  </div>
-  <br>
-  <button class="btn btn-primary" (click)="submitted=false">Editar</button>
-  <button class="btn btn-primary" (click)="newProduct(); productForm.reset()">Novo Produto</button>
-  <a class="btn btn-primary" routerLink="/products">Voltar para Lista</a>
 </div>

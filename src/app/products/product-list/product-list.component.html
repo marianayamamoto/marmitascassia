@@ -7,6 +7,7 @@
 		</md-card-title>
 		<md-card-content>
 			<button md-button (click)="openDialog(product.$key)"><md-icon>delete</md-icon> Remover</button>
+			<a [routerLink]="['/products/edit', product.$key]"><md-icon>edit</md-icon> Editar</a>
 		</md-card-content>
 	</md-card>
 

@@ -1,0 +1,25 @@
+<div class="container daily-menu-form" [hidden]="submitted">
+    <h1>{{formTitle}}</h1>
+    <md-card>
+      <form (ngSubmit)="onSubmit()" #dailyMenuForm="ngForm">
+        <div class="form-group">
+          <md-input-container>
+            <input mdInput placeholder="Data" type="text" id="data" required
+            [(ngModel)]="model.date" name="date" #name="ngModel" (ngModelChange)="onChange($event)" />
+            <div [hidden]="date.valid || date.pristine"
+                 class="alert alert-danger">
+              Data é obrigatória
+            </div>
+          </md-input-container>
+        </div>
+        <button md-button (click)="goBack()">
+            <md-icon>
+            arrow_back
+            </md-icon>
+            &nbsp;
+            Voltar
+        </button>
+        <button md-raised-button type="submit" class="btn btn-success" [disabled]="!dailyMenuForm.form.valid">Submit</button>
+      </form>
+    </md-card>
+</div>

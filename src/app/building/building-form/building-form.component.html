@@ -1,7 +1,7 @@
-<div class="container category-form" [hidden]="submitted">
+<div class="container building-form" [hidden]="submitted">
     <h1>{{formTitle}}</h1>
     <md-card>
-      <form (ngSubmit)="onSubmit()" #categoryForm="ngForm">
+      <form (ngSubmit)="onSubmit()" #buildingForm="ngForm">
         <div class="form-group">
           <md-input-container>
             <input mdInput placeholder="Nome" type="text" id="name" required
@@ -19,7 +19,7 @@
             &nbsp;
             Voltar
         </button>
-        <button md-raised-button type="submit" class="btn btn-success" [disabled]="!categoryForm.form.valid">Submit</button>
+        <button md-raised-button type="submit" class="btn btn-success" [disabled]="!buildingForm.form.valid">Submit</button>
       </form>
     </md-card>
 </div>

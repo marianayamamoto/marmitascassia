@@ -9,6 +9,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { ProductsModule } from './products/products.module';
 import { CategoryModule } from './category/category.module';
 import { DialogsModule } from './confirm-dialog/confirm-dialog.module';
+import { BuildingModule } from  './building/building.module';
 
 
 // App components
@@ -23,7 +24,8 @@ import { AppComponent } from './app.component';
     DashboardModule,
     ProductsModule,
     CategoryModule,
-    DialogsModule
+    DialogsModule,
+    BuildingModule
   ],
   bootstrap: [AppComponent]
 })

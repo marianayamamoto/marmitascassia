@@ -1,0 +1,20 @@
+<div class="container">
+    <div *ngIf="building">
+    <h2>Detalhe do Predio</h2>
+    <md-card>
+        <md-card-title>
+            <span>{{building.name}}</span>
+        </md-card-title>
+        <md-card-actions>
+            <button md-button (click)="goBack()">
+                <md-icon>
+                arrow_back
+                </md-icon>
+                &nbsp;
+                Voltar
+            </button>
+        </md-card-actions>
+    </md-card>
+    </div>
+    <a md-fab [routerLink]="['/buildings/edit', building.$key]" class="fixed-floating-btn"><md-icon>edit</md-icon></a>
+</div>

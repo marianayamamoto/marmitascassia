@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { Product } from '../shared/product';
 import { ProductService } from '../shared/product.service';
+import { CategoryService } from '../../category/shared/category.service';
 
 
 @Component({
@@ -17,13 +18,14 @@ import { ProductService } from '../shared/product.service';
     formTitle: String;
     model: Product = null;
     isNew: boolean;
-    categories = ['Marmita', 'Bebida', 'Outro'];
+    categories = [];
     submitted: boolean = false;
 
     constructor(private productService: ProductService,
       private route: ActivatedRoute,
       private location: Location,
-      private router : Router) {
+      private router : Router,
+      private categoryService: CategoryService) {
 
     }
 
@@ -52,14 +54,20 @@ import { ProductService } from '../shared/product.service';
     }
 
     onChange(value) {
-      this.formTitle = 'Editando Produto: ' + value;
+      if(!this.isNew) {
+        this.formTitle = 'Editando Produto: ' + value;
+      }
     }
 
     goBack(): void {
-  	  this.location.back();
+  	  this.router.navigate([`/products`]);
   	}
 
     ngOnInit(): void {
+      this.categoryService.getCategories().subscribe(categories => {
+        this.categories = categories;
+        console.log(categories);
+      });
       this.route.params.subscribe((params) => {
         if(params['id']) {
           this.isNew = false;

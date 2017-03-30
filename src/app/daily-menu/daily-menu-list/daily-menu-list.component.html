@@ -1,0 +1,15 @@
+<div class="container">
+	<h2>Cardapios</h2>
+
+	<md-card *ngFor="let dailyMenu of dailyMenus class="col-md-3">
+		<md-card-title>
+			<a [routerLink]="['/daily-menus/detail', dailyMenu.$key]"  class="col-1-4">{{dailyMenu.date}}</a>
+		</md-card-title>
+		<md-card-content>
+			<button md-button (click)="openDialog(dailyMenu.$key)"><md-icon>delete</md-icon> Remover</button>
+			<a [routerLink]="['/daily-menus/edit', dailyMenu.$key]"><md-icon>edit</md-icon> Editar</a>
+		</md-card-content>
+	</md-card>
+
+	<a md-fab [routerLink]="['/daily-menus/create']" class="fixed-floating-btn"><md-icon>add</md-icon></a>
+</div>

@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { Category } from '../shared/category';
 import { CategoryService } from '../shared/category.service';
-import { DialogsService } from '../confirm-dialog/confirm-dialog.service';
 
 
 
@@ -59,7 +58,7 @@ import { DialogsService } from '../confirm-dialog/confirm-dialog.service';
     }
 
     goBack() {
-  	  this.location.back();
+  	  this.router.navigate([`/categories`]);
   	}
 
     ngOnInit() {
