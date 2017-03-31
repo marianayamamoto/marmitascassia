@@ -9,6 +9,14 @@ md-sidenav {
     }
 }
 
+md-card {
+  margin: 1%;
+
+  @include respond-to('s') {
+    margin: 2%;
+  }
+}
+
 md-select {
   width: 100%;
 }
