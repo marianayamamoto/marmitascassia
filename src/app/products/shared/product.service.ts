@@ -12,6 +12,17 @@ import { Product } from './product';
 
   }
 
+  getProductsByCategory(category: string): FirebaseListObservable<Product[]> {
+
+    return this.af.database.list('/products', {
+      query: {
+        orderByChild: 'category',
+        equalTo: category
+      }
+    });
+
+  }
+
   getProduct(id: string): FirebaseObjectObservable<Product> {
 
     return this.af.database.object(`/products/${id}`);

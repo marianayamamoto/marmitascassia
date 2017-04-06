@@ -4,8 +4,8 @@ export class DailyMenu {
   date: Date;
   mains: Product[];
   siders: Product[];
-  drinks: Product[]
-
+  drinks: Product[];
+  mistura: Product[];
   constructor(values: Object = {}) {
 
     Object.assign(this, values);

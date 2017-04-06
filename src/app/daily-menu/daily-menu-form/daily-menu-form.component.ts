@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { DailyMenu } from '../shared/daily-menu';
 import { DailyMenuService } from '../shared/daily-menu.service';
-
+import { Product } from '../../products/shared/product';
+import { ProductService } from '../../products/shared/product.service';
 
 
 @Component({
@@ -19,15 +20,14 @@ import { DailyMenuService } from '../shared/daily-menu.service';
     model: DailyMenu = null;
     isNew: boolean;
     submitted: boolean = false;
+    mains: Product[];
 
     constructor(private dailyMenuService: DailyMenuService,
+      private productService: ProductService,
       private route: ActivatedRoute,
       private location: Location,
       private router : Router) {
-
     }
-
-    //TODO:get daily-menus from DB
 
     newDailyMenu() {
       this.model = new DailyMenu();
@@ -78,5 +78,10 @@ import { DailyMenuService } from '../shared/daily-menu.service';
           this.newDailyMenu();
         }
       });
+      this.productService.getProductsByCategory('Mistura').subscribe(products => {
+        this.mains = products;
+        console.log(this.mains);
+      });
+
     }
   }

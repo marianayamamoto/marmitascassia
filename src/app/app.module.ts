@@ -10,6 +10,7 @@ import { ProductsModule } from './products/products.module';
 import { CategoryModule } from './category/category.module';
 import { DialogsModule } from './confirm-dialog/confirm-dialog.module';
 import { BuildingModule } from  './building/building.module';
+import { DailyMenuModule } from  './daily-menu/daily-menu.module';
 
 
 // App components
@@ -25,7 +26,8 @@ import { AppComponent } from './app.component';
     ProductsModule,
     CategoryModule,
     DialogsModule,
-    BuildingModule
+    BuildingModule,
+    DailyMenuModule
   ],
   bootstrap: [AppComponent]
 })

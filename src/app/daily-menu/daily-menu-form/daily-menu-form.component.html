@@ -4,13 +4,23 @@
       <form (ngSubmit)="onSubmit()" #dailyMenuForm="ngForm">
         <div class="form-group">
           <md-input-container>
-            <input mdInput placeholder="Data" type="text" id="data" required
-            [(ngModel)]="model.date" name="date" #name="ngModel" (ngModelChange)="onChange($event)" />
+            <input mdInput placeholder="Data" type="date" id="date" required
+            [(ngModel)]="model.date" name="date" #date="ngModel" (ngModelChange)="onChange($event)" />
             <div [hidden]="date.valid || date.pristine"
                  class="alert alert-danger">
               Data é obrigatória
             </div>
           </md-input-container>
+        </div>
+
+        <div class="form-group">
+          <md-select placeholder="Selecione uma opção" id="mistura" required [(ngModel)]="model.mistura" name="mistura" #mistura="ngModel" multiple="true">
+            <md-option *ngFor="let mistura of mains" [value]="mistura.name">{{mistura.name}}</md-option>
+          </md-select>
+          <div [hidden]="mistura.valid || mistura.pristine"
+               class="alert alert-danger">
+            Mistura é obrigatorio
+          </div>
         </div>
         <button md-button (click)="goBack()">
             <md-icon>
