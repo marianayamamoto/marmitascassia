@@ -3,8 +3,11 @@
     <h2>Detalhe do Cardapio</h2>
     <md-card>
         <md-card-title>
-            <span>{{dailyMenu.date}}</span>
+            <span>{{dailyMenu.date| date: 'dd/MM/yyyy'}}</span>
         </md-card-title>
+        <md-card-content *ngFor="let side of dailyMenu.sides">
+          {{side}}
+        </md-card-content>
         <md-card-actions>
             <button md-button (click)="goBack()">
                 <md-icon>
