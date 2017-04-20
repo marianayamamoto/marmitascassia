@@ -46,7 +46,6 @@
     "@angular/cli": "^1.0.0",
     "@angular/compiler-cli": "^2.4.0",
     "@types/jasmine": "2.5.38",
-    "angular-cli": "1.0.0-beta.25.5",
     "codelyzer": "~2.0.0-beta.1",
     "firebase-tools": "^3.2.2",
     "ts-node": "~2.0.0",
