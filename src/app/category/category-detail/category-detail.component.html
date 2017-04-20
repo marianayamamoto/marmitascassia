@@ -5,6 +5,16 @@
         <md-card-title>
             <span>{{category.name}}</span>
         </md-card-title>
+        <md-card-content>
+            <md-list>
+                <md-list-item>
+                    <span>E visivel no cardápio: {{category.isVisible ? 'Sim' : 'Não'}}</span>
+                </md-list-item>
+                <md-list-item>
+                     <span>É permitido multiplos valores no cardápio: {{category.allowMultiple ? 'Sim' : 'Não'}}</span>
+                </md-list-item>
+            </md-list>
+        </md-card-content>
         <md-card-actions>
             <button md-button (click)="goBack()">
                 <md-icon>

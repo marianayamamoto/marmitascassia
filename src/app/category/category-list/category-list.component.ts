@@ -21,6 +21,7 @@ import { DialogsService } from '../../confirm-dialog/confirm-dialog.service';
     getCategories(): void {
       this.categoryService.getCategories()
         .subscribe(categories => {
+          console.log(categories);
           this.categories = categories
         });
     }

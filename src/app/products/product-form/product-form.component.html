@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <md-select placeholder="Selecione uma opção" id="category" required [(ngModel)]="model.category" name="category" #category="ngModel">
-            <md-option *ngFor="let cat of categories" [value]="cat.name">{{cat.name}}</md-option>
+            <md-option *ngFor="let cat of categories" [value]="{id: cat.$key, name: cat.name}">{{cat.name}}</md-option>
           </md-select>
           <div [hidden]="category.valid || category.pristine"
                class="alert alert-danger">

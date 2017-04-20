@@ -66,7 +66,6 @@ import { CategoryService } from '../../category/shared/category.service';
     ngOnInit(): void {
       this.categoryService.getCategories().subscribe(categories => {
         this.categories = categories;
-        console.log(categories);
       });
       this.route.params.subscribe((params) => {
         if(params['id']) {
