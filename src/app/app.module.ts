@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule, routedComponents } from './app-routing.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -17,7 +17,7 @@ import { DailyMenuModule } from  './daily-menu/daily-menu.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent],//Components,
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CoreModule,
@@ -27,7 +27,8 @@ import { AppComponent } from './app.component';
     CategoryModule,
     DialogsModule,
     BuildingModule,
-    DailyMenuModule
+    DailyMenuModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

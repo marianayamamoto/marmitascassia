@@ -26,7 +26,7 @@ import { ProductService } from '../../products/shared/product.service';
       private productService: ProductService,
       private route: ActivatedRoute,
       private location: Location,
-      private router : Router) {
+      private router: Router) {
     }
 
     newDailyMenu() {
@@ -63,7 +63,7 @@ import { ProductService } from '../../products/shared/product.service';
 
     ngOnInit() {
       this.route.params.subscribe((params) => {
-        if(params['id']) {
+        if (params['id']) {
           this.isNew = false;
           this.route.params
             .map(params => params['id'])

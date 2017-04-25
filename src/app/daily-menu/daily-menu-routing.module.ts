@@ -13,19 +13,19 @@ const routes: Routes = [
     },
     {
         path: 'daily-menus',
-        component:DailyMenuListComponent
+        component: DailyMenuListComponent
     },
     {
         path: 'daily-menus/create',
-        component:DailyMenuFormComponent
+        component: DailyMenuFormComponent
     },
     {
         path: 'daily-menus/detail/:id',
-        component:DailyMenuDetailComponent
+        component: DailyMenuDetailComponent
     },
     {
         path: 'daily-menus/edit/:id',
-        component:DailyMenuFormComponent
+        component: DailyMenuFormComponent
     }
 ];
 

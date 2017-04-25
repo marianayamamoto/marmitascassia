@@ -14,10 +14,10 @@
         </div>
 
         <div class="form-group">
-          <md-select placeholder="Selecione uma opção" id="mistura" required [(ngModel)]="model.mistura" name="mistura" #mistura="ngModel" multiple="true">
-            <md-option *ngFor="let mistura of mains" [value]="mistura.name">{{mistura.name}}</md-option>
+          <md-select placeholder="Selecione uma opção" id="sides" required [(ngModel)]="model.sides" name="sides" #sides="ngModel" multiple="true">
+            <md-option *ngFor="let sides of mains" [value]="sides.name">{{sides.name}}</md-option>
           </md-select>
-          <div [hidden]="mistura.valid || mistura.pristine"
+          <div [hidden]="sides.valid || sides.pristine"
                class="alert alert-danger">
             Mistura é obrigatorio
           </div>
