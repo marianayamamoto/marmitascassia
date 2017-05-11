@@ -12,6 +12,15 @@ import { Category } from './category';
 
   }
 
+  getCategoriesAndProducts(): FirebaseListObservable<any> {
+
+    return this.af.database.list('/category', {
+      query: {
+        orderByChild: 'category'
+      }
+    });
+  }
+
   getCategory(id: string): FirebaseObjectObservable<Category> {
 
     return this.af.database.object(`/category/${id}`);

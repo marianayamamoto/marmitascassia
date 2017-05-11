@@ -7,6 +7,7 @@ import { DailyMenu } from '../shared/daily-menu';
 import { DailyMenuService } from '../shared/daily-menu.service';
 import { Product } from '../../products/shared/product';
 import { ProductService } from '../../products/shared/product.service';
+import { CategoryService } from '../../category/shared/category.service';
 
 
 @Component({
@@ -24,6 +25,7 @@ import { ProductService } from '../../products/shared/product.service';
 
     constructor(private dailyMenuService: DailyMenuService,
       private productService: ProductService,
+      private categoryService: CategoryService,
       private route: ActivatedRoute,
       private location: Location,
       private router: Router) {
@@ -78,7 +80,12 @@ import { ProductService } from '../../products/shared/product.service';
           this.newDailyMenu();
         }
       });
-      this.productService.getProductsByCategory('Mistura').subscribe(products => {
+      // this.productService.getProductsByCategory('Mistura').subscribe(products => {
+      //   this.mains = products;
+      //   console.log(this.mains);
+      // });
+
+      this.categoryService.getCategoriesAndProducts().subscribe(products => {
         this.mains = products;
         console.log(this.mains);
       });
