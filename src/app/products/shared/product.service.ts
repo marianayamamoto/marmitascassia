@@ -1,20 +1,25 @@
 import { Inject, Injectable } from '@angular/core';
-import { AngularFire, FirebaseRef, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Product } from './product';
+import * as firebase from 'firebase/app';
 
 @Injectable() export class ProductService {
 
-  constructor(private af: AngularFire) {}
+  db;
+
+  constructor(db: AngularFireDatabase) {
+    this.db = db;
+  }
 
   getProducts(): FirebaseListObservable<Product[]> {
 
-    return this.af.database.list('/products');
+    return this.db.list('/products');
 
   }
 
   getProductsByCategory(category: string): FirebaseListObservable<Product[]> {
 
-    return this.af.database.list('/products', {
+    return this.db.list('/products', {
       query: {
         orderByChild: 'category',
         equalTo: category
@@ -25,13 +30,13 @@ import { Product } from './product';
 
   getProduct(id: string): FirebaseObjectObservable<Product> {
 
-    return this.af.database.object(`/products/${id}`);
+    return this.db.object(`/products/${id}`);
 
   }
 
   createProduct(prod: Product) {
 
-    return this.af.database.list('/products').push(prod);
+    return this.db.list('/products').push(prod);
 
   }
 

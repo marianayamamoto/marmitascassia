@@ -6,7 +6,7 @@ import { ConfirmDialog }   from './confirm-dialog.component';
 
 @NgModule({
     imports: [
-        MaterialModule.forRoot(),
+        MaterialModule,
     ],
     exports: [
         ConfirmDialog,

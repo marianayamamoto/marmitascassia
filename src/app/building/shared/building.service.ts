@@ -1,26 +1,30 @@
 import { Inject, Injectable } from '@angular/core';
-import { AngularFire, FirebaseRef, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Building } from './building';
+import * as firebase from 'firebase/app';
 
 @Injectable() export class BuildingService {
+  db;
 
-  constructor(private af: AngularFire) {}
+  constructor(db: AngularFireDatabase) {
+    this.db = db;
+  }
 
   getBuildings(): FirebaseListObservable<Building[]> {
 
-    return this.af.database.list('/building');
+    return this.db.list('/building');
 
   }
 
   getBuilding(id: string): FirebaseObjectObservable<Building> {
 
-    return this.af.database.object(`/building/${id}`);
+    return this.db.object(`/building/${id}`);
 
   }
 
   createBuilding(building: Building) {
 
-    return this.af.database.list('/building').push(building);
+    return this.db.list('/building').push(building);
 
   }
 

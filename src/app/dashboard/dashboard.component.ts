@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFire } from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'my-dashboard',
@@ -7,24 +9,15 @@ import { AngularFire } from 'angularfire2';
 })
 
 export class DashboardComponent {
-  user = {};
-  constructor(public af: AngularFire) {
-  this.af.auth.subscribe(user => {
-      if (user) {
-        // user logged in
-        this.user = user;
-      } else {
-        // user not logged in
-        this.user = {};
-      }
-      console.log(user);
-    });
+  user: Observable<firebase.User>;
+  constructor(public afAuth: AngularFireAuth) {
+    this.user = afAuth.authState;
   }
   login() {
-    this.af.auth.login();
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
-     this.af.auth.logout();
+    this.afAuth.auth.signOut();
   }
 }

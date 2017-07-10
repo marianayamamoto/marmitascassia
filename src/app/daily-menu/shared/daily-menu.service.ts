@@ -1,26 +1,31 @@
 import { Inject, Injectable } from '@angular/core';
-import { AngularFire, FirebaseRef, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { DailyMenu } from './daily-menu';
+import * as firebase from 'firebase/app';
 
 @Injectable() export class DailyMenuService {
 
-  constructor(private af: AngularFire) {}
+  db;
+
+  constructor(db: AngularFireDatabase) {
+    this.db = db;
+  }
 
   getDailyMenus(): FirebaseListObservable<DailyMenu[]> {
 
-    return this.af.database.list('/daily_menus');
+    return this.db.list('/daily_menus');
 
   }
 
   getDailyMenu(id: string): FirebaseObjectObservable<DailyMenu> {
 
-    return this.af.database.object(`/daily_menus/${id}`);
+    return this.db.object(`/daily_menus/${id}`);
 
   }
 
   createDailyMenu(dailyMenu: DailyMenu) {
 
-    return this.af.database.list('/daily_menus').push(dailyMenu);
+    return this.db.list('/daily_menus').push(dailyMenu);
 
   }
 

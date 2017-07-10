@@ -1,20 +1,25 @@
 import { Inject, Injectable } from '@angular/core';
-import { AngularFire, FirebaseRef, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Category } from './category';
+import * as firebase from 'firebase/app';
 
 @Injectable() export class CategoryService {
 
-  constructor(private af: AngularFire) {}
+  db;
+
+  constructor(db: AngularFireDatabase) {
+    this.db = db;
+  }
 
   getCategories(): FirebaseListObservable<Category[]> {
 
-    return this.af.database.list('/category');
+    return this.db.list('/category');
 
   }
 
   getCategoriesAndProducts(): FirebaseListObservable<any> {
 
-    return this.af.database.list('/category', {
+    return this.db.list('/category', {
       query: {
         orderByChild: 'category'
       }
@@ -23,13 +28,13 @@ import { Category } from './category';
 
   getCategory(id: string): FirebaseObjectObservable<Category> {
 
-    return this.af.database.object(`/category/${id}`);
+    return this.db.object(`/category/${id}`);
 
   }
 
   createCategory(category: Category) {
 
-    return this.af.database.list('/category').push(category);
+    return this.db.list('/category').push(category);
 
   }
 
